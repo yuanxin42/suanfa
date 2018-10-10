@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var isHappy = function (data) {
+            let arr = []
+            let isreturn = false
+            function isHappy_(n) {
+                if (arr.indexOf(n) === -1) {
+                    arr.push(n)
+                    let num = 0;
+                    [].slice.call(n.toString()).map(function (val) {
+                        num = num + parseInt(val ** 2)
+                    })
+                    if (num === 1) {
+                        isreturn = true
+                    } else {
+                        isHappy_(num)
+                    }
+                }else{
+                    isreturn = false
+                }
+            }
+            isHappy_(data)
+            return isreturn
+        };
+        console.log(isHappy(119))
+    </script>
+</body>
+
+</html>
